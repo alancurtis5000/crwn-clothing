@@ -1,10 +1,10 @@
-import "./homepage.styles.scss";
 import Direcotry from "../../components/directory/directory.component";
+import { HompageContainer } from "./homepage.styles";
 
 const Homepage = () => (
-  <div className="homepage">
+  <HompageContainer className="homepageContainer">
     <Direcotry />
-  </div>
+  </HompageContainer>
 );
 
 export default Homepage;
