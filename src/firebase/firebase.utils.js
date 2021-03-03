@@ -84,6 +84,17 @@ export const convertCollectionsSnapshotToMap = (collections) => {
   }, {});
 };
 
+// firebase offers subcription to sign in status
+// faking promise based method as if we didn't have firebase
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((userAuth) => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject);
+  });
+};
+
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
