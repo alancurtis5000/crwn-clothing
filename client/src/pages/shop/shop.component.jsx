@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
+import Spinner from "../../components/spinner/spinner.component";
 
 //const CheckoutPage = lazy(() => import("./pages/checkout/checkout.component"));
 const CollectionsOverviewContainer = lazy(() =>
@@ -19,7 +20,7 @@ const ShopPage = ({ fetchCollectionsStart, match }) => {
 
   return (
     <div className="shop-page">
-      <Suspense>
+      <Suspense fallback={<Spinner />}>
         <Route
           exact
           path={`${match.path}`}
